@@ -1,0 +1,224 @@
+units:
+  mcu_width: 33
+  mcu_height: 18
+  batt_width: 11.5
+  batt_length: 31.8
+  batt_padding: 1.5
+
+points:
+  key:
+    padding: cy
+    footprints:
+      choc_hotswap:
+        type: choc
+        nets:
+          from: =column_net
+          to: GND
+        params:
+            keycaps: true
+            reverse: true
+            hotswap: true
+      choc:
+        type: choc
+        anchor:
+          rotate: 180
+        nets:
+          from: =column_net
+          to: GND
+        params:
+            keycaps: true
+            reverse: true
+
+  zones:
+    matrix:
+      rows:
+        bottom:
+        home:
+        top:
+      columns:
+          pinkie:
+            rotate: 4
+            spread: cx
+            row_overrides:
+              bottom:
+                bind: [0,1,0,2]
+                column_net: P10
+              home:
+                column_net: P5
+                bind: [0,3,0,2]
+              top:
+                column_net: P4
+                bind: [0,6,0,2]
+          ring:
+            rotate: -4
+            origin: [-9, -9]
+            stagger: 8
+            spread: cx+0.2
+            rows:
+              bottom:
+                bind: [0,1,0,0]
+                column_net: P14
+              home:
+                bind: [0,1,0,0]
+                column_net: P6
+              top:
+                column_net: P3
+                bind: [0,0,0,2]
+          middle:
+            stagger: 8
+            spread: cx
+            rows:
+              bottom:
+                bind: [0,1,0,0]
+                column_net: P15
+              home:
+                bind: [0,1,0,0]
+                column_net: P7
+              top:
+                column_net: P1
+                bind: [0,2,0,2]
+          index:
+            stagger: -6
+            spread: cx
+            rows:
+              bottom:
+                bind: [0,1,0,0]
+                column_net: P18
+              home:
+                bind: [0,1,0,0]
+                column_net: P9
+              top:
+                bind: [0,1,0,0]
+                column_net: P0
+          far:
+            stagger: -2
+            spread: cx
+            rows:
+              bottom:
+                column_net: P19
+                bind: [0,25.64,5,0]
+              home:
+                column_net: P8
+                bind: [0,25.64,0,0]
+              top:
+                column_net: P2
+                bind: [2,25.64,0,0]
+    thumbfan:
+      anchor:
+        ref: matrix_far_bottom
+        shift: [-7, -18]
+      columns:
+        near:
+          rows:
+            thumb:
+              bind: [2,8,2,2]
+              column_net: P20
+        home:
+          spread: cx+4
+          rotate: -30
+          stagger: -6
+          rows:
+            thumb:
+              bind: [9.5,3,2,1]
+              column_net: P21
+      rows:
+        thumb:
+
+outlines:
+  exports:
+    _mcu:
+      - type: rectangle
+        size: [mcu_width, mcu_height]
+        anchor:
+          rotate: 270
+          ref: matrix_far_top
+          shift: [10, 10]
+    raw:
+      - type: keys
+        side: left
+        size: [1cx , 1cx]
+    cutout:
+      - type: outline
+        name: raw
+        fillet: 2
+    keycap_outlines:
+      - type: keys
+        side: both
+        size: [1cx - 0.5, 1cy - 0.5] # Choc keycaps are 17.5 x 16.5
+        bound: false
+    final:
+      - cutout
+      - type: outline
+        name: keycap_outlines
+        operation: subtract
+      - type: outline
+        name: _mcu
+        operation: stack
+
+
+pcbs:
+  magic34:
+    outlines:
+      main:
+        outline: cutout
+    footprints:
+      pcm12:
+        type: pcm12
+        anchor:
+          ref: matrix_far_bottom
+          shift: [+32.5, -6]
+          rotate: 90
+        nets:
+          from: pos
+          to: RAW
+        params:
+          reverse: true
+      b3u1000p:
+        type: b3u1000p
+        nets:
+          r1: RST
+          r2: GND
+        anchor:
+          ref: matrix_far_bottom
+          shift: [+32.5, +2]
+          rotate: 270
+        params:
+          reverse: true
+      bat:
+        type: bat
+        nets:
+          neg: GND
+          pos: pos
+        anchor:
+          ref: matrix_far_home
+          shift: [32, -10]
+          rotate: 90
+      via4:
+        type: via
+        anchor:
+          ref: matrix_far_bottom
+          shift: [29,-8]
+        nets:
+          net: pos
+      via6:
+        type: via
+        anchor:
+          ref: matrix_far_bottom
+          shift: [29,-6]
+        nets:
+          net: RAW
+      via5:
+        type: via
+        anchor:
+          ref: matrix_far_bottom
+          shift: [28,-12]
+        nets:
+          net: GND
+      promicro:
+        type: promicro_pretty
+        anchor:
+          ref: matrix_far_top
+          shift: [cx+3, -6]
+          rotate: 270
+
+

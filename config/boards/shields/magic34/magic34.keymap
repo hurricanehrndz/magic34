@@ -50,7 +50,7 @@
         bindings = <
           &kp ESC    &kp SEMI    &kp LBRC   &kp RBRC   &kp UNDER          &none       &kp C_VOL_DN   &kp C_MUTE   &kp C_VOL_UP   &none
           &kp TAB    &kp BSLH    &kp LPAR   &kp RPAR   &kp GRAVE          &none       &sk RCTL       &sk RSHIFT   &sk LGUI       &sk LALT
-          &lt CAPS   &kp COLON   &kp LBKT   &kp RBKT   &kp TILDE          &none       &kp C_PREV     &kp C_PP     &kp C_NEXT     &none
+          &kp CAPS   &kp COLON   &kp LBKT   &kp RBKT   &kp TILDE          &none       &kp C_PREV     &kp C_PP     &kp C_NEXT     &none
                                             &kp TAB    &kp BSPC           &kp SPACE   &mo SYM
         >;
       };

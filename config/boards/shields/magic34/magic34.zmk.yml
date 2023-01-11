@@ -1,0 +1,14 @@
+---
+file_format: "1"
+id: magic34
+name: Magic34
+type: shield
+url: https://github.com/hurricanehrndz/magic34/
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+siblings:
+  - magic34_left
+  - magic32_right

@@ -1,0 +1,5 @@
+#include "magic34.dtsi"
+
+&default_transform {
+    col-offset = <17>;
+};

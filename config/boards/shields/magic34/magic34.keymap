@@ -8,6 +8,8 @@
 #define NAV   3
 #define FUN   4
 
+#define MEH LS(LC(LALT))
+
 &sk {
   release-after-ms = <2000>;
   quick-release;
@@ -33,17 +35,17 @@
       default_layer {
         bindings = <
           &kp Q        &kp W        &kp F          &kp P        &kp B              &kp J       &kp L        &kp U          &kp Y        &kp SQT
-          &hm LALT A   &hm LGUI R   &hm LSHIFT S   &hm LCTL T   &kp G              &kp M       &hm RCTL N   &hm RSHIFT E   &hm LGUI I   &hm LALT O
+          &hm LALT A   &hm LGUI R   &hm LSHIFT S   &hm LCTL T   &hm MEH G          &hm MEH M   &hm RCTL N   &hm RSHIFT E   &hm LGUI I   &hm LALT O
           &lt NAV Z    &lt FUN X    &kp C          &kp D        &kp V              &kp K       &kp H        &kp COMMA      &kp DOT      &kp FSLH
-                                                   &mo NUM      &sk LSHIFT         &kp SPACE   &mo SYM
+                                                   &mo NUM      &kp LSHIFT         &kp SPACE   &mo SYM
         >;
       };
       num_layer {
         bindings = <
           &kp ESC    &kp HOME          &kp PG_UP    &kp END     &to NAV            &kp STAR    &kp N7   &kp N8   &kp N9   &kp PLUS
-          &sk LALT   &sk LGUI          &sk LSHIFT   &sk LCTL    &none              &kp EQUAL   &kp N4   &kp N5   &kp N6   &kp MINUS
+          &sk LALT   &sk LGUI          &sk LSHIFT   &sk LCTL    &sk MEH            &kp EQUAL   &kp N4   &kp N5   &kp N6   &kp MINUS
           &kp BSPC   &kp PAUSE_BREAK   &kp PG_DN    &kp DEL     &none              &kp DOT     &kp N1   &kp N2   &kp N3   &kp FSLH
-                                                    &mo NUM     &sk LSHIFT         &kp N0      &kp RET
+                                                    &mo NUM     &kp LSHIFT         &kp N0      &kp RET
         >;
       };
       sym_layer {
@@ -51,13 +53,13 @@
           &kp ESC    &kp SEMI    &kp LBRC   &kp RBRC   &kp UNDER          &none       &kp C_VOL_DN   &kp C_MUTE   &kp C_VOL_UP   &none
           &kp TAB    &kp BSLH    &kp LPAR   &kp RPAR   &kp GRAVE          &none       &sk RCTL       &sk RSHIFT   &sk LGUI       &sk LALT
           &kp CAPS   &kp COLON   &kp LBKT   &kp RBKT   &kp TILDE          &none       &kp C_PREV     &kp C_PP     &kp C_NEXT     &none
-                                            &kp TAB    &kp BSPC           &kp SPACE   &mo SYM
+                                            &kp BSPC   &kp TAB            &kp SPACE   &mo SYM
         >;
       };
       nav_layer {
         bindings = <
           &none     &none      &none        &none     &none                 &kp DOWN    &kp RIGHT   &none   &none   &none
-          &none     &sk LGUI   &sk LSHIFT   &sk LCTL  &none                 &kp EQUAL   &none       &none   &none   &none
+          &none     &sk LGUI   &sk LSHIFT   &sk LCTL  &none                 &none       &none       &none   &none   &none
           &trans    &none      &none        &none     &none                 &kp UP      &kp LEFT    &none   &none   &none
                                             &to DEF   &sk LALT              &to DEF     &to DEF
         >;

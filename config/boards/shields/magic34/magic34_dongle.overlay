@@ -14,3 +14,14 @@
 };
 
 /delete-node/ &kscan0;
+
+/* Cheap nice!nano clones often lack the inductors the nRF52840's DC/DC
+ * converters need, and the chip browns out as soon as ZMK enables them. The
+ * LDO works on any board, and the extra draw doesn't matter on USB power. */
+&reg0 {
+	status = "disabled";
+};
+
+&reg1 {
+	regulator-initial-mode = <0>; /* NRF5X_REG_MODE_LDO */
+};

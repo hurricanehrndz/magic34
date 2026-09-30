@@ -26,14 +26,6 @@
           require-prior-idle-ms = <150>;
           bindings = <&kp>, <&kp>;
       };
-      lt_th: thumb_layer_tap {
-          compatible = "zmk,behavior-hold-tap";
-          #binding-cells = <2>;
-          flavor = "balanced";
-          tapping-term-ms = <200>;
-          quick-tap-ms = <200>;
-          bindings = <&mo>, <&kp>;
-      };
     };
 
     keymap {
@@ -44,7 +36,7 @@
           &kp Q        &kp W        &kp F          &kp P        &kp B              &kp J       &kp L        &kp U          &kp Y        &kp SQT
           &hm LALT A   &hm LGUI R   &hm LSHIFT S   &hm LCTL T   &hm MEH G          &hm MEH M   &hm RCTL N   &hm RSHIFT E   &hm LGUI I   &hm LALT O
           &lt NAV Z    &lt FUN X    &kp C          &kp D        &kp V              &kp K       &kp H        &kp COMMA      &kp DOT      &kp FSLH
-                                                   &lt_th NUM RET &kp LSHIFT         &kp SPACE   &lt_th SYM BSPC
+                                                   &mo NUM      &kp LSHIFT         &kp SPACE   &mo SYM
         >;
       };
       num_layer {

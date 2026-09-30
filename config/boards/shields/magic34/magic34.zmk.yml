@@ -11,4 +11,5 @@ features:
   - display
 siblings:
   - magic34_left
-  - magic32_right
+  - magic34_right
+  - magic34_dongle

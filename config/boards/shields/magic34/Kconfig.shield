@@ -3,3 +3,6 @@ config SHIELD_MAGIC34_LEFT
 
 config SHIELD_MAGIC34_RIGHT
 	def_bool $(shields_list_contains,magic34_right)
+
+config SHIELD_MAGIC34_DONGLE
+	def_bool $(shields_list_contains,magic34_dongle)

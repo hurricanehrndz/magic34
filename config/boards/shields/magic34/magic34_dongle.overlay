@@ -1,0 +1,27 @@
+#include "magic34.dtsi"
+
+/ {
+	chosen {
+		zmk,kscan = &mock_kscan;
+	};
+
+	mock_kscan: mock_kscan_0 {
+		compatible = "zmk,kscan-mock";
+		columns = <0>;
+		rows = <0>;
+		events = <0>;
+	};
+};
+
+/delete-node/ &kscan0;
+
+/* Cheap nice!nano clones often lack the inductors the nRF52840's DC/DC
+ * converters need, and the chip browns out as soon as ZMK enables them. The
+ * LDO works on any board, and the extra draw doesn't matter on USB power. */
+&reg0 {
+	status = "disabled";
+};
+
+&reg1 {
+	regulator-initial-mode = <0>; /* NRF5X_REG_MODE_LDO */
+};

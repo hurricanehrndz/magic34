@@ -1,14 +1,28 @@
-if SHIELD_MAGIC34_LEFT
+if SHIELD_MAGIC34_LEFT || SHIELD_MAGIC34_DONGLE
 
 config ZMK_KEYBOARD_NAME
 	default "Magic34"
 
-config ZMK_SPLIT_BLE_ROLE_CENTRAL
+config ZMK_SPLIT_ROLE_CENTRAL
 	default y
 
 endif
 
-if SHIELD_MAGIC34_LEFT || SHIELD_MAGIC34_RIGHT
+if SHIELD_MAGIC34_DONGLE
+
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+	default 2
+
+# 5 host profiles + 2 halves
+config BT_MAX_CONN
+	default 7
+
+config BT_MAX_PAIRED
+	default 7
+
+endif
+
+if SHIELD_MAGIC34_LEFT || SHIELD_MAGIC34_RIGHT || SHIELD_MAGIC34_DONGLE
 
 config ZMK_SPLIT
 	default y

@@ -19,7 +19,6 @@
     behaviors {
       hm: homerow_mods {
           compatible = "zmk,behavior-hold-tap";
-          label = "HOMEROW_MODS";
           #binding-cells = <2>;
           flavor = "tap-preferred";
           tapping-term-ms = <200>;
@@ -29,7 +28,6 @@
       };
       lt_th: thumb_layer_tap {
           compatible = "zmk,behavior-hold-tap";
-          label = "THUMB_LAYER_TAP";
           #binding-cells = <2>;
           flavor = "balanced";
           tapping-term-ms = <200>;

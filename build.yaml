@@ -21,8 +21,12 @@ include:
     shield: settings_reset
   # Dongle builds: flash the dongle, and the left half as a peripheral.
   # The right half uses the magic34_right build above in both setups.
+  # Cheap nice!nano clones often lack the 32 kHz crystal, and ZMK hangs at
+  # boot waiting for it. The internal RC oscillator works on any board, and the
+  # extra power draw doesn't matter on a USB-powered dongle.
   - board: nice_nano//zmk
     shield: magic34_dongle
+    cmake-args: -DCONFIG_CLOCK_CONTROL_NRF_K32SRC_RC=y
   - board: nice_nano//zmk
     shield: magic34_left
     cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
